@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Mini Loja</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  .gallery {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .main-image {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .main-image img {
+    width: 70%;
+    height: 400px;
+    transition: transform 0.3s ease;
+  }
+
+  .main-image img:hover {
+    transform: scale(1.05);
+  }
+
+  .thumbnails img {
+    width: 100px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .thumbnails img:hover {
+    border-color: #007bff;
+  }
+
+  #descricao {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  #botao {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #botao:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div class="gallery">
+ 
+  <div class="main-image">
+    <img id="mainImg" src="c:\Users\Leo\Desktop\virada produtos\monitor1.jpg" alt="Imagem Principal">
+  </div>
+  <div id="thumbnails" class="thumbnails">
+    <!-- Miniaturas serão adicionadas dinamicamente aqui -->
+  </div>
+  <button id="botao" onclick="window.location.href = 'virada.html'">Adicionar ao Carrinho</button>
+  <p id="descricao">
+    - Marca: Ozone <br>
+    - Modelo: OZDSP25FHD <br>
+    <br>
+    Especificações: <br>
+    - Tamanho da tela: 24,5" <br>
+    - Resolução: 1920 x 1080 (Full HD) <br>
+    - Tempo de resposta: 1 ms <br>
+    - Taxa de atualização: 144 Hz <br>
+    - Contraste: 1000:1 <br>
+    - Brilho: 350 cd/m² <br>
+    - Ângulo de Visão: 170° <br>
+    <br>
+    Conectividade: <br>
+    - 1 x Alimentação <br>
+    - 1 x HDMI (inc.) <br>
+    - 1 x USB <br>
+    - 1 x Saída de áudio jack 3.5 mm <br>
+    <br>
+    Dimensões: <br>
+    - Base + Monitor: 565 x 395 x 130 mm <br>
+    <br>
+    Recursos: <br>
+    - AMD Freesync e NVIDIA G-Sync <br>
+    - HDR <br>
+    - Sem Tremores <br>
+    - Modo Low Blue Light <br>
+    - Montagem VESA 100 mm <br>
+    <br>
+    Conteúdo da Embalagem: <br>
+    - Monitor Gamer LED Ozone <br>
+    <br>
+    Garantia: <br>
+    24 meses de garantia <br>
+    <br>
+    Peso: <br>
+    5597 gramas (bruto com embalagem)
+</p>
+  
+</div>
+
+<script>
+  // Lista de imagens e miniaturas
+  const images = [
+    { src: 'c:/Users/Leo/Desktop/virada produtos/monitor1.jpg', alt: 'Imagem Principal', descricao: 'Descrição da Imagem Principal' },
+    { src: 'c:/Users/Leo/Desktop/virada produtos/muuunitor1.jpg', alt: 'Thumbnail 1', descricao: 'Descrição da Imagem 1' },
+    { src: 'c:/Users/Leo/Desktop/virada produtos/muuuunitor1.jpg', alt: 'Thumbnail 1', descricao: 'Descrição da Imagem 1' },
+    // Adicione mais imagens conforme necessário
+  ];
+
+  // Função para adicionar miniaturas e manipular cliques
+  function setupGallery() {
+    const thumbnailsContainer = document.getElementById('thumbnails');
+    const descricao = document.getElementById('descricao');
+
+    images.forEach(image => {
+      const thumbnail = document.createElement('img');
+      thumbnail.src = image.src;
+      thumbnail.alt = image.alt;
+      thumbnail.onclick = () => {
+        document.getElementById('mainImg').src = image.src;
+        descricao.textContent = image.descricao;
+      };
+      thumbnailsContainer.appendChild(thumbnail);
+    });
+  }
+
+  // Chamada para configurar a galeria quando a página carregar
+  window.onload = setupGallery;
+</script>
+</body>
+</html>
